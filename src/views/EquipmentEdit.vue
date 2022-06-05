@@ -61,7 +61,14 @@ export default {
     },
     updateEquipment(){
       this.axios.put('/api/equipment/' + this.$route.params.id, this.form).then((res) => {
-        console.log(res)
+        if (res.data.success === false) {
+          this.$swal.fire(
+              'Ошибка!',
+              res.data.message,
+              'error'
+          )
+          return
+        }
         this.$router.push({path: "/equipment"});
       })
     }
