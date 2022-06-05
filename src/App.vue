@@ -2,11 +2,34 @@
   <div id="app">
     <nav>
       <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
+      <router-link to="/about">About</router-link> |
+      <router-link to="/equipment-types">Equipment-types</router-link> |
+      <router-link to="/equipment">Equipment</router-link>
     </nav>
     <router-view/>
   </div>
 </template>
+
+<script>
+// @ is an alias to /src
+// import HelloWorld from '@/components/HelloWorld.vue'
+
+export default {
+  components: {
+    // HelloWorld
+  },
+
+  data() {
+    return {
+
+    }
+  },
+
+  mounted() {
+    console.log(process.env)
+  }
+}
+</script>
 
 <style lang="scss">
 #app {

@@ -2,14 +2,21 @@ import Vue from 'vue'
 import VueRouter from 'vue-router'
 import HomeView from '../views/HomeView.vue'
 
+const EquipmentTypes = () => import('../views/EquipmentTypes')
+const Equipment = () => import('../views/Equipment')
+const EquipmentEdit = () => import('../views/EquipmentEdit')
+const EquipmentCreate = () => import('../views/EquipmentCreate')
+
 Vue.use(VueRouter)
 
 const routes = [
-  {
-    path: '/',
-    name: 'home',
-    component: HomeView
-  },
+  {path: '/',name: 'home',component: HomeView},
+  {path: '/equipment-types',name: 'equipment-types', component: EquipmentTypes},
+
+  {path: '/equipment',name: 'equipment', component: Equipment},
+  {path: '/equipment/:id',name: 'equipment-edit', component: EquipmentEdit},
+  {path: '/equipment-create',name: 'equipment-create', component: EquipmentCreate},
+
   {
     path: '/about',
     name: 'about',
@@ -21,7 +28,8 @@ const routes = [
 ]
 
 const router = new VueRouter({
-  routes
+  routes,
+  mode: 'history',
 })
 
 export default router
