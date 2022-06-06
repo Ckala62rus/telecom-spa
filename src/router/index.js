@@ -6,6 +6,7 @@ const EquipmentTypes = () => import('../views/EquipmentTypes')
 const Equipment = () => import('../views/Equipment')
 const EquipmentEdit = () => import('../views/EquipmentEdit')
 const EquipmentCreate = () => import('../views/EquipmentCreate')
+const LoginPage = () => import('../views/LoginPage')
 
 Vue.use(VueRouter)
 
@@ -16,6 +17,7 @@ const routes = [
   {path: '/equipment',name: 'equipment', component: Equipment},
   {path: '/equipment/:id',name: 'equipment-edit', component: EquipmentEdit},
   {path: '/equipment-create',name: 'equipment-create', component: EquipmentCreate},
+  {path: '/login',name: 'login', component: LoginPage},
 
   {
     path: '/about',

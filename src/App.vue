@@ -21,12 +21,32 @@ export default {
 
   data() {
     return {
-
+      // auth: false
     }
+  },
+
+  watch: {
+    '$route.params': {
+      handler: function() {
+        console.log('test')
+        this.getMe()
+      },
+      deep: true,
+      immediate: true
+    }
+  },
+
+  methods: {
+    getMe(){
+      this.axios.post('/api/me').then(res => {
+        console.log(res)
+      })
+    },
   },
 
   mounted() {
     console.log(process.env)
+    this.auth = localStorage.getItem('auth')
   }
 }
 </script>
