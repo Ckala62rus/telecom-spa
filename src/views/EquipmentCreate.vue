@@ -62,6 +62,27 @@ export default {
 
   methods: {
     createEquipment(){
+
+      if (this.value == null) {
+        this.$swal.fire(
+            'Ошибка!',
+            `Не выбран тип оборудования!`,
+            'error'
+        )
+        return;
+      }
+
+      this.inputs.forEach(input => {
+        if (input.serial_number.length === 0) {
+          this.$swal.fire(
+              'Ошибка!',
+              `Не указан серийный номер!`,
+              'error'
+          )
+          return;
+        }
+      })
+
       this.axios.post('/api/equipment', {equipments: this.inputs, type_id: this.value}).then(res => {
         if (res.data.success === true) {
           this.$swal.fire(
