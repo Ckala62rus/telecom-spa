@@ -104,6 +104,7 @@ export default {
       columns: [
         'id',
         'type_id',
+        'types.name_type',
         'serial_number',
         'description',
         // 'created_at',
@@ -114,6 +115,7 @@ export default {
         headings: {
           id: '#ID',
           type_id: 'Тип оборудования',
+          'types.name_type': 'Имя типа',
           serial_number: 'Серийный номер',
           description: 'Описание',
           // created_at: 'Дата создания',
@@ -134,7 +136,7 @@ export default {
           defaultOption: 'Выбрать {column}',
           columns: 'Колонки'
         },
-        filterable: false,
+        filterable: true,
         skin: 'table table-bordered table-checkable dataTable no-footer dtr-inline collapsed',
         sortIcon: {
           base: 'la',
